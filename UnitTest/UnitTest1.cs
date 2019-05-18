@@ -56,5 +56,12 @@ namespace Tests
             box.frame.Center.Should().BeEquivalentTo("|yo|");
 
         }
+
+        [Test]
+        public void TestDisplay()
+        {
+            Box box = new Box("yo");
+            Box.Display(box);
+        }
     }
 }

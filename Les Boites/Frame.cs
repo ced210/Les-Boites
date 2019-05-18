@@ -11,7 +11,7 @@ namespace Les_Boites
         public string TopBottom { get; private set; }
         public string Center { get; private set; }
 
-        public void setTopBottom(int size) // size of 4 should give +----+
+        public string SetTopBottom(int size) // size of 4 should give +----+
         {
             TopBottom = "+";
             for (int i = 0; i < size; ++i)
@@ -19,8 +19,12 @@ namespace Les_Boites
                 TopBottom += "-";
             }
             TopBottom += "+";
+
+            return TopBottom;
         }
-        public void setCenter(string center, int size)
+
+
+        public string SetCenter(string center, int size)
         {
             Center = "|" + center;
             for (int i = center.Length; i < size; ++i) // yo should give |yo| if size == 4 should give |yo  | instead
@@ -28,6 +32,25 @@ namespace Les_Boites
                 Center += " ";
             }
             Center += "|";
+            return Center;
+        }
+
+       
+        public string SetCenterCombo(Box box1, Box box2, int heightIndex)
+        {
+
+            Center = "|" + box1.Text[heightIndex];
+            for (int i = box1.Text[heightIndex].Length; i < box1.Width; ++i) 
+            {
+                Center += " ";
+            }
+            Center += "|" + box2.Text[heightIndex];
+            for (int i = box2.Text[heightIndex].Length; i < box2.Width; ++i)
+            {
+                Center += " ";
+            }
+            Center += "|";
+            return Center;
         }
     }
 }

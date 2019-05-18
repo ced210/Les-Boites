@@ -7,9 +7,31 @@ namespace Les_Boites
 {
     public class HorizontalBox : IBox
     {
-        public HorizontalBox()
+
+        public Frame frame = new Frame();
+
+        public Box box1 = new Box();
+        public Box box2 = new Box();
+
+        public HorizontalBox(Box box1, Box box2) 
         {
-            throw new System.NotImplementedException();
+            Width = box1.Width + box2.Width + 1;
+            this.box1 = box1;
+            this.box2 = box2;
+
+
+            if (box1.Height > box2.Height)
+            {
+                Height = box1.Height;
+                this.box2.ResizeTextLength(box1.Height);
+            }
+            else {
+                Height = box2.Height;
+                this.box1.ResizeTextLength(box1.Height);
+            }
+           
+            frame.SetTopBottom(Width);
         }
+
     }
 }
