@@ -13,14 +13,14 @@ namespace Les_Boites
         public IBox(string text)
         {
             Text = text;
-            Width = text.Split('\n').Select(s => s.TrimEnd('\r')).Max(s => s.Length);
-            Height = text.Count(c => c == '\n');
+            Width = text.Length;
+            Height = text.Count(c => c == '\n') + 1;
         }
 
         public int Height { get; set; }
 
         public int Width { get; set; }
 
-        public string Text { get; set; }
+        public string[] Text { get; set; }
     }
 }

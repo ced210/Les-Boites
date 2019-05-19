@@ -31,7 +31,7 @@ namespace Tests
 
             box.Height.Should().Be(3);
             box.Width.Should().Be(16);
-            box.Text.Should().BeEquivalentTo("Man! Hey!!!\r\nceci est un test\r\nmultiligne");
+            box.Text.Should().BeEquivalentTo(new string[]{ "Man! Hey!!!", "ceci est un test", "multiligne" });
         }
 
         [Test]
@@ -53,8 +53,6 @@ namespace Tests
         {
             Box box = new Box("yo");
             box.frame.TopBottom.Should().BeEquivalentTo("+--+");
-            box.frame.Center.Should().BeEquivalentTo("|yo|");
-
         }
 
         [Test]
@@ -66,7 +64,7 @@ namespace Tests
 
 
         [Test]
-        public void VerticalComboStats_Test()
+        public void VerticalCombo_Test()
         {
             VerticalBox vb = new VerticalBox(new Box("Yo\nMamamama\nokok"), new Box("youkoulele"));
             vb.Height.Should().Be(new string[] { "Yo", "Mamamama", "okok", "----------", "youkoulele" }.Length); // to box + middle line + bottom

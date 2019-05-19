@@ -35,21 +35,14 @@ namespace Les_Boites
         }
 
        
-        public string SetCenterHorizontalCombo(Box box1, Box box2, int heightIndex)
+        public string SetCenterHorizontalCombo(HorizontalBox box)
         {
-
-            Center = "|" + box1.Text[heightIndex];
-            for (int i = box1.Text[heightIndex].Length; i < box1.Width; ++i) 
+            List<string> centerText = new List<string>();
+            for (int i = 0; i < box.Height; i++)
             {
-                Center += " ";
+                centerText.Add(string.Join("|", "|" + box.leftBox.Text[i], box.rightBox.Text[i] + "|"));
             }
-            Center += "|" + box2.Text[heightIndex];
-            for (int i = box2.Text[heightIndex].Length; i < box2.Width; ++i)
-            {
-                Center += " ";
-            }
-            Center += "|";
-            return Center;
+            return string.Join("\n", centerText.ToArray());
         }
 
         public string SetCenterVerticalCombo(VerticalBox box)

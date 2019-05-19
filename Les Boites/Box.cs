@@ -15,13 +15,13 @@ namespace Les_Boites
 
         public string[] Text { get; set; }
 
-        public void ResizeTextHeight(int max)
+        public void ResizeTextHeight(int maxHeight)
         {
-            var newText = Text.ToList();
+            List<string> newText = Text.ToList();
 
-            for (int i = Text.Length; i < max; i++)
+            for (int i = Text.Length; i < maxHeight; i++)
             {
-                newText.Add("");
+                newText.Add("".PadRight(Width));
             }
             Text = newText.ToArray();
         }
@@ -49,20 +49,14 @@ namespace Les_Boites
         public static void Display(Box box)
         {
             Console.WriteLine(box.frame.TopBottom);
-            for (int i = 0; i < box.Height; ++i)
-            {
-                Console.WriteLine(box.frame.SetCenter(box.Text[i],box.Width));
-            }
+            Console.WriteLine(box.Text);
             Console.WriteLine(box.frame.TopBottom);
         }
 
         public static void Display(HorizontalBox box)
         {
             Console.WriteLine(box.frame.TopBottom);
-            for (int i = 0; i < box.Height; ++i)
-            {
-                Console.WriteLine(box.frame.SetCenterHorizontalCombo(box.leftBox, box.rightBox, i));
-            }
+            Console.WriteLine(box.frame.SetCenterHorizontalCombo(box));
             Console.WriteLine(box.frame.TopBottom);
         }
 
@@ -94,9 +88,21 @@ namespace Les_Boites
             Width = Text.Max(s => s.Length);
             Height = text.Count(c => c == '\n') + 1;
 
+            ResizeTextLength(Width);
             frame.SetTopBottom(Width);
         }
         
+        public Box(VerticalBox vb)
+        {
+            Height = vb.Height;
+            Width = vb.Width;
+        }
+
+        public Box(HorizontalBox hb)
+        {
+            Height = hb.Height;
+            Width = hb.Width;
+        }
 
     }
 }

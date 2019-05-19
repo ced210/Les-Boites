@@ -31,6 +31,20 @@ namespace Les_Boites
             }
 
             frame.SetTopBottom(Width);
+
+            Text = SetVerticalBoxText();
+        }
+
+        public string[] SetVerticalBoxText()
+        {
+            List<string> centerText = new List<string>();
+            centerText.AddRange(topBox.Text.ToList());
+            centerText.Add(new string('-', Width));
+            centerText.AddRange(buttomBox.Text.ToList());
+
+            centerText = centerText.Select(s => "|" + s + "|").ToList();
+
+            return string.Join("\n", centerText.ToArray());
         }
     }
 }

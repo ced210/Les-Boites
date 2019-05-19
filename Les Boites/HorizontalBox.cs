@@ -18,20 +18,24 @@ namespace Les_Boites
             box1.CopyIn(ref leftBox);
             box2.CopyIn(ref rightBox);
 
-            Width = box1.Width + box2.Width + 1;
+            Width = leftBox.Width + rightBox.Width + 1;
 
-            if (box1.Height > box2.Height)
+            
+
+            if (leftBox.Height > rightBox.Height)
             {
-                Height = box1.Height;
-                this.rightBox.ResizeTextHeight(box1.Height);
+                Height = leftBox.Height;
+                this.rightBox.ResizeTextHeight(Height);
             }
             else {
-                Height = box2.Height;
-                this.leftBox.ResizeTextHeight(box1.Height);
+                Height = rightBox.Height;
+                this.leftBox.ResizeTextHeight(Height);
             }
 
             frame.SetTopBottom(Width);
+
         }
+
 
     }
 }
