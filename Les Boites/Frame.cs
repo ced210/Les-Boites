@@ -10,7 +10,6 @@ namespace Les_Boites
     {
         public string TopBottom { get; private set; }
         public string Center { get; private set; }
-
         public string SetTopBottom(int size) // size of 4 should give +----+
         {
             TopBottom = "+";
@@ -23,7 +22,7 @@ namespace Les_Boites
             return TopBottom;
         }
 
-
+     
         public string SetCenter(string center, int size)
         {
             Center = "|" + center;

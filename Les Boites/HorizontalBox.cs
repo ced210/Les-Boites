@@ -16,9 +16,6 @@ namespace Les_Boites
         public HorizontalBox(Box box1, Box box2) 
         {
             Width = box1.Width + box2.Width + 1;
-            this.box1 = box1;
-            this.box2 = box2;
-
 
             if (box1.Height > box2.Height)
             {
@@ -29,7 +26,8 @@ namespace Les_Boites
                 Height = box2.Height;
                 this.box1.ResizeTextHeight(box1.Height);
             }
-           
+            this.box1 = box1;
+            this.box2 = box2;
             frame.SetTopBottom(Width);
         }
 
