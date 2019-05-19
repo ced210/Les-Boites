@@ -10,24 +10,26 @@ namespace Les_Boites
 
         public Frame frame = new Frame();
 
-        public Box box1 = new Box();
-        public Box box2 = new Box();
+        public Box leftBox = new Box();
+        public Box rightBox = new Box();
 
         public HorizontalBox(Box box1, Box box2) 
         {
+            box1.CopyIn(ref leftBox);
+            box2.CopyIn(ref rightBox);
+
             Width = box1.Width + box2.Width + 1;
 
             if (box1.Height > box2.Height)
             {
                 Height = box1.Height;
-                this.box2.ResizeTextHeight(box1.Height);
+                this.rightBox.ResizeTextHeight(box1.Height);
             }
             else {
                 Height = box2.Height;
-                this.box1.ResizeTextHeight(box1.Height);
+                this.leftBox.ResizeTextHeight(box1.Height);
             }
-            this.box1 = box1;
-            this.box2 = box2;
+
             frame.SetTopBottom(Width);
         }
 

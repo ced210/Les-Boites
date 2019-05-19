@@ -61,7 +61,7 @@ namespace Les_Boites
             Console.WriteLine(box.frame.TopBottom);
             for (int i = 0; i < box.Height; ++i)
             {
-                Console.WriteLine(box.frame.SetCenterHorizontalCombo(box.box1, box.box2, i));
+                Console.WriteLine(box.frame.SetCenterHorizontalCombo(box.leftBox, box.rightBox, i));
             }
             Console.WriteLine(box.frame.TopBottom);
         }
