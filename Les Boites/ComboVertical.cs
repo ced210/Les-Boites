@@ -11,6 +11,7 @@ namespace Les_Boites
     {
         Boite topBox { get; set; }
         Boite bottomBox { get; set; }
+        string middleLine { get; set; }
 
         public ComboVertical()
         {
@@ -35,6 +36,8 @@ namespace Les_Boites
         private void EqualizeLength()
         {
             topBox.Text = base.ReseizeWidth(topBox.Text, Width);
+
+            middleLine = new string('-', Width);
             bottomBox.Text = base.ReseizeWidth(bottomBox.Text, Width);
         }
 
@@ -42,7 +45,7 @@ namespace Les_Boites
         {
             List<string> lst = new List<string>();
             lst.AddRange(topBox.Text);
-            lst.Add(new string('-', Width));
+            lst.Add(middleLine);
             lst.AddRange(bottomBox.Text);
             return lst;
         }

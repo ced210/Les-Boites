@@ -12,6 +12,8 @@ namespace Les_Boites
         public int Width {get; set;}
         public List<string> Text { get; set; }
 
+        public string middleLine { get; set; }
+
         public MasterBoite()
         {
             Height = 0;

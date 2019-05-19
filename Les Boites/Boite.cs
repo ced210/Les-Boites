@@ -31,11 +31,16 @@ namespace Les_Boites
 
         public Boite(ComboHorizontal ch)
         {
+            Height = ch.Height;
+            Width = ch.Width;
+            Text = ch.Text;
         }
 
         public Boite(ComboVertical cv)
         {
-
+            Height = cv.Height;
+            Width = cv.Width;
+            Text = cv.Text;
         }
 
         private void ReseizeWidth()

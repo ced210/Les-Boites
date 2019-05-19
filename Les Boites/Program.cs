@@ -20,65 +20,83 @@ namespace Les_Boites
 
             Boite.Display(simpleBox);
 
-            ComboHorizontal cb = new ComboHorizontal(simpleBox, multiLineBox);
-            Boite.Display(new Boite(cb));
+            Boite.Display(new Boite(new ComboHorizontal(simpleBox, multiLineBox)));
+
+            Boite.Display(new Boite(new ComboHorizontal(multiLineBox, simpleBox)));
+
+
+            Boite.Display(new Boite(new ComboVertical(simpleBox, multiLineBox)));
+
+            Boite.Display(new Boite(new ComboVertical(multiLineBox, simpleBox)));
+
+
+
+            MainPatrice();
+        }
+
+        
+        static void MainPatrice()
+        {
+            Boite b = new Boite();
+            Boite.Display(b);
+            Boite.Display(new Boite("yo"));
+            string texte = @"Man! Hey!!!
+ceci est un test
+multiligne";
+            string aut_texte = "Ceci\nitou, genre";
+            Boite b0 = new Boite(texte);
+            Boite b1 = new Boite(aut_texte);
+            Boite.Display(b0);
+            Boite.Display(b1);
+            ComboVertical cv = new ComboVertical(b0, b1);
+            Boite.Display(new Boite(cv));
+            ComboHorizontal ch = new ComboHorizontal(b0, b1);
+            Boite.Display(new Boite(ch));
+
+
+            ComboVertical cvplus = new ComboVertical(new Boite(cv), new Boite(ch));
+            Boite.Display(new Boite(cvplus));
+
+
+            ComboHorizontal chplus = new ComboHorizontal(new Boite(cv), new Boite(ch));
+            Boite.Display(new Boite(chplus));
+
+
+
+            ComboVertical cvv = new ComboVertical(new Boite(chplus), new Boite("coucou"));
+            Boite.Display(new Boite(cvv));
+            Boite.Display(new Boite(
+                new ComboHorizontal(
+                    new Boite("a\nb\nc\nd\ne"),
+                        new Boite(
+                        new ComboVertical(
+                            new Boite("allo"), new Boite("yo")
+                        )
+                        )
+                    )
+                )
+            );
+            Boite.Display(
+                new Boite(new ComboHorizontal(new Boite("Yo"), new Boite()))
+            );
+            Boite.Display(
+                new Boite(new ComboHorizontal(new Boite(), new Boite("Ya")))
+            );
+            Boite.Display(
+                new Boite(new ComboHorizontal(new Boite(), new Boite()))
+            );
+            Boite.Display(
+                new Boite(new ComboVertical(new Boite(), new Boite()))
+            );
+            Boite.Display(
+                new Boite(new ComboVertical(new Boite("Yip"), new Boite()))
+            );
+            Boite.Display(
+                new Boite(new ComboVertical(new Boite(), new Boite("Yap")))
+            );
         }
     }
 }
 
 
-//        static void Main(string[] args)
-//        {
-//            Box b = new Box();
-//            Box.Display(b);
-//            Box.Display(new Box("yo"));
-//            string texte = @"Man! Hey!!!
-//ceci est un test
-//multiligne";
-//            string aut_texte = "Ceci\nitou, genre";
-//            Box b0 = new Box(texte);
-//            Box b1 = new Box(aut_texte);
-//            Box.Display(b0);
-//            Box.Display(b1);
-//            VerticalBox cv = new VerticalBox(b0, b1);
-//            Box.Display(new Box(cv));
-//            HorizontalBox ch = new HorizontalBox(b0, b1);
-//            Box.Display(new Box(ch));
-//            VerticalBox cvplus = new VerticalBox(new Box(cv), new Box(ch));
-//            Box.Display(new Box(cvplus));
-//            HorizontalBox chplus = new HorizontalBox(new Box(cv), new Box(ch));
-//            Box.Display(new Box(chplus));
-//            VerticalBox cvv = new VerticalBox(new Box(chplus), new Box("coucou"));
-//            Box.Display(new Box(cvv));
-//            Box.Display(new Box(
-//               new HorizontalBox(
-//                  new Box("a\nb\nc\nd\ne"),
-//                     new Box(
-//                        new VerticalBox(
-//                           new Box("allo"), new Box("yo")
-//                        )
-//                     )
-//                  )
-//               )
-//            );
-//            Box.Display(
-//               new Box(new HorizontalBox(new Box("Yo"), new Box()))
-//            );
-//            Box.Display(
-//               new Box(new HorizontalBox(new Box(), new Box("Ya")))
-//            );
-//            Box.Display(
-//               new Box(new HorizontalBox(new Box(), new Box()))
-//            );
-//            Box.Display(
-//               new Box(new VerticalBox(new Box(), new Box()))
-//            );
-//            Box.Display(
-//               new Box(new VerticalBox(new Box("Yip"), new Box()))
-//            );
-//            Box.Display(
-//               new Box(new VerticalBox(new Box(), new Box("Yap")))
-//            );
-//        }
-//    }
-//}
+
