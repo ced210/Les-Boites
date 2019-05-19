@@ -18,6 +18,10 @@ namespace Les_Boites
             HorizontalBox hb = new HorizontalBox(box1, box2);
             Box.Display(hb);
 
+
+
+            VerticalBox vb = new VerticalBox(new Box("Yo\nMamamama\nokok"), new Box("youkoulele"));
+            Box.Display(vb);
         }
     }
 }

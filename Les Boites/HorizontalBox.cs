@@ -23,11 +23,11 @@ namespace Les_Boites
             if (box1.Height > box2.Height)
             {
                 Height = box1.Height;
-                this.box2.ResizeTextLength(box1.Height);
+                this.box2.ResizeTextHeight(box1.Height);
             }
             else {
                 Height = box2.Height;
-                this.box1.ResizeTextLength(box1.Height);
+                this.box1.ResizeTextHeight(box1.Height);
             }
            
             frame.SetTopBottom(Width);

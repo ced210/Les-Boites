@@ -36,7 +36,7 @@ namespace Les_Boites
         }
 
        
-        public string SetCenterCombo(Box box1, Box box2, int heightIndex)
+        public string SetCenterHorizontalCombo(Box box1, Box box2, int heightIndex)
         {
 
             Center = "|" + box1.Text[heightIndex];
@@ -51,6 +51,18 @@ namespace Les_Boites
             }
             Center += "|";
             return Center;
+        }
+
+        public string SetCenterVerticalCombo(VerticalBox box)
+        {
+            List<string> centerText = new List<string>();
+            centerText.AddRange(box.topBox.Text.ToList());
+            centerText.Add(new string('-', box.Width));
+            centerText.AddRange(box.buttomBox.Text.ToList());
+
+            centerText = centerText.Select(s => "|" + s + "|").ToList();
+
+            return string.Join("\n", centerText.ToArray());
         }
     }
 }

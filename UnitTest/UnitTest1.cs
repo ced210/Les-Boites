@@ -63,5 +63,14 @@ namespace Tests
             Box box = new Box("yo");
             Box.Display(box);
         }
+
+
+        [Test]
+        public void VerticalComboStats_Test()
+        {
+            VerticalBox vb = new VerticalBox(new Box("Yo\nMamamama\nokok"), new Box("youkoulele"));
+            vb.Height.Should().Be(new string[] { "Yo", "Mamamama", "okok", "----------", "youkoulele" }.Length); // to box + middle line + bottom
+            vb.Width.Should().Be("youkoulele".Length); // "youkoulele".lengt
+        }
     }
 }

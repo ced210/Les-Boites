@@ -15,7 +15,7 @@ namespace Les_Boites
 
         public string[] Text { get; set; }
 
-        public void ResizeTextLength(int max)
+        public void ResizeTextHeight(int max)
         {
             var newText = Text.ToList();
 
@@ -24,6 +24,14 @@ namespace Les_Boites
                 newText.Add("");
             }
             Text = newText.ToArray();
+        }
+
+        public void ResizeTextLength(int maxWidth)
+        {
+            for (int i = 0; i < Text.Length; i++)
+            {
+                Text[i] = Text[i].PadRight(maxWidth);
+            }
         }
 
         public static void Display(TextWriter outStream, params Box[] boxes)
@@ -53,8 +61,17 @@ namespace Les_Boites
             Console.WriteLine(box.frame.TopBottom);
             for (int i = 0; i < box.Height; ++i)
             {
-                Console.WriteLine(box.frame.SetCenterCombo(box.box1, box.box2, i));
+                Console.WriteLine(box.frame.SetCenterHorizontalCombo(box.box1, box.box2, i));
             }
+            Console.WriteLine(box.frame.TopBottom);
+        }
+
+        public static void Display(VerticalBox box)
+        {
+            Console.WriteLine(box.frame.TopBottom);
+            
+            Console.WriteLine(box.frame.SetCenterVerticalCombo(box));
+            
             Console.WriteLine(box.frame.TopBottom);
         }
 
@@ -62,6 +79,14 @@ namespace Les_Boites
 
 
         public Box() { Height = 0; Width = 0; }
+
+        public void CopyIn(ref Box otherBox)
+        {
+            otherBox.Height = this.Height;
+            otherBox.Width = this.Width;
+            otherBox.Text = this.Text;
+        }
+
 
         public Box(string text)
         {
