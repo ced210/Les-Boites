@@ -53,10 +53,11 @@ namespace Les_Boites
             Console.WriteLine(box.frame.TopBottom);
             for (int i = 0; i < box.Height; ++i)
             {
-                Console.WriteLine(box.frame.SetCenterCombo(box.box1, box.box2, i));
+                Console.WriteLine(box.frame.SetCenterHorizontalCombo(box.box1, box.box2, i));
             }
             Console.WriteLine(box.frame.TopBottom);
         }
+
 
         public Frame frame = new Frame();
 

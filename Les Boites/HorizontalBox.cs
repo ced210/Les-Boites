@@ -16,20 +16,18 @@ namespace Les_Boites
         public HorizontalBox(Box box1, Box box2) 
         {
             Width = box1.Width + box2.Width + 1;
-            this.box1 = box1;
-            this.box2 = box2;
-
 
             if (box1.Height > box2.Height)
             {
                 Height = box1.Height;
-                this.box2.ResizeTextLength(box1.Height);
+                box2.ResizeTextLength(box1.Height);
             }
             else {
                 Height = box2.Height;
-                this.box1.ResizeTextLength(box1.Height);
+                box1.ResizeTextLength(box1.Height);
             }
-           
+            this.box1 = box1;
+            this.box2 = box2;
             frame.SetTopBottom(Width);
         }
 
